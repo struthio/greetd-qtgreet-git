@@ -1,0 +1,12 @@
+post_install() {
+    # Add greeter user to video group
+    usermod -aG video greeter
+
+    # Change ownership of QTGreet config folder
+    chown -R greeter:greeter /etc/qtgreet/
+}
+
+post_remove() {
+    # Delete etc folder for qtgreet
+    rm -rf /etc/qtgreet
+}
